@@ -1,9 +1,5 @@
-*** Variables ***
-${URL}                      https://www.saucedemo.com/
-${USERNAME_INPUT}           css=[data-test="username"]
-${PASSWORD_INPUT}           css=[data-test="password"]
-${LOGIN_BUTTON}             css=[data-test="login-button"]
-${ERROR_MESSAGE}            css=[data-test="error"]
+*** Settings ***
+Resource    ../variables.resource
 
 *** Keywords ***
 Open Login Page

@@ -17,7 +17,7 @@ Locked Out User Is Blocked From Login
     [Tags]    smoke    auth    negative
     Open Login Page
     Login With Credentials    ${LOCKED_USER}    ${PASSWORD}
-    Error Message Should Contain    Sorry, this user has been locked out.
+    Error Message Should Contain    ${LOCKED_OUT_ERROR_MESSAGE}
 
 User Can Add Item To Cart
     [Tags]    smoke    cart
@@ -32,7 +32,7 @@ User Can Complete Checkout
     Open Cart
     Cart Page Should Be Visible
     Start Checkout
-    Complete Checkout Information    Jane    Doe    10001
+    Complete Checkout Information    ${CHECKOUT_FIRST_NAME_VALUE}    ${CHECKOUT_LAST_NAME_VALUE}    ${CHECKOUT_ZIP_VALUE}
     Checkout Overview Should Be Visible
     Finish Checkout
     Order Confirmation Should Be Visible
@@ -40,8 +40,8 @@ User Can Complete Checkout
 Product Sorting Affects Display Order
     [Tags]    regression    catalog
     Login As Standard User
-    Sort Products By    za
-    First Product Name Should Be    Test.allTheThings() T-Shirt (Red)
+    Sort Products By    ${SORT_VALUE_ZA}
+    First Product Name Should Be    ${Z_TO_A_FIRST_PRODUCT_NAME}
 
 User Can Logout From Inventory
     [Tags]    regression    auth

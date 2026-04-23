@@ -1,19 +1,11 @@
-*** Variables ***
-${INVENTORY_TITLE}                  css=[data-test="title"]
-${CART_LINK}                        css=[data-test="shopping-cart-link"]
-${SORT_DROPDOWN}                    css=[data-test="product-sort-container"]
-${ITEM_NAME_FIRST}                  css=.inventory_item_name >> nth=0
-${ADD_BACKPACK_BUTTON}              css=[data-test="add-to-cart-sauce-labs-backpack"]
-${REMOVE_BACKPACK_BUTTON}           css=[data-test="remove-sauce-labs-backpack"]
-${CART_BADGE}                       css=[data-test="shopping-cart-badge"]
-${MENU_BUTTON}                      css=#react-burger-menu-btn
-${LOGOUT_LINK}                      css=[data-test="logout-sidebar-link"]
+*** Settings ***
+Resource    ../variables.resource
 
 *** Keywords ***
 Inventory Page Should Be Visible
     Wait For Elements State    ${INVENTORY_TITLE}    visible
     ${title}=    Get Text    ${INVENTORY_TITLE}
-    Should Be Equal    ${title}    Products
+    Should Be Equal    ${title}    ${INVENTORY_TITLE_TEXT}
 
 Sort Products By
     [Arguments]    ${value}
@@ -32,7 +24,7 @@ Add Backpack To Cart
 Backpack Should Be In Cart Badge
     Wait For Elements State    ${CART_BADGE}    visible
     ${badge}=    Get Text    ${CART_BADGE}
-    Should Be Equal    ${badge}    1
+    Should Be Equal    ${badge}    ${CART_BADGE_COUNT}
 
 Open Cart
     Click    ${CART_LINK}

@@ -1,15 +1,5 @@
-*** Variables ***
-${CART_TITLE}                    css=[data-test="title"]
-${CHECKOUT_BUTTON}               css=[data-test="checkout"]
-${CHECKOUT_FIRST_NAME}           css=[data-test="firstName"]
-${CHECKOUT_LAST_NAME}            css=[data-test="lastName"]
-${CHECKOUT_ZIP}                  css=[data-test="postalCode"]
-${CONTINUE_BUTTON}               css=[data-test="continue"]
-${FINISH_BUTTON}                 css=[data-test="finish"]
-${CHECKOUT_COMPLETE_HEADER}      css=[data-test="complete-header"]
-${CHECKOUT_COMPLETE_TEXT}        Thank you for your order!
-${CHECKOUT_OVERVIEW_TITLE}       Checkout: Overview
-${YOUR_CART_TITLE}               Your Cart
+*** Settings ***
+Resource    ../variables.resource
 
 *** Keywords ***
 Cart Page Should Be Visible
