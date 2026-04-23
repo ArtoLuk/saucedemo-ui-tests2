@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-python3 -m pip install --upgrade pip
-python3 -m pip install -r requirements.txt
-python3 -m Browser.entry init
-python3 -m robot -d results tests
+# Create virtual environment if it doesn't exist
+if [ ! -d "venv" ]; then
+    python3 -m venv venv
+fi
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install dependencies
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m Browser.entry init
+
+# Run tests
+python -m robot -d results tests
